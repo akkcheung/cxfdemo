@@ -1,0 +1,8 @@
+package cxfdemo;
+
+import javax.jws.WebService;
+
+@WebService
+public interface CXFDemo {
+     public String sayHello(@WebParam(name="text") String text);
+}

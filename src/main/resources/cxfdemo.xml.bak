@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_0.dtd">
+ 
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+  <Set name="contextPath">/myWebApp02</Set>
+  <Set name="war"><SystemProperty name="jetty.home" default="."/>/webapps/MyWebApp02.war</Set>
+  
+  <Get name="securityHandler">
+       <Set name="loginService">            
+            <!-- <New class="org.eclipse.jetty.security.HashLoginService"> -->
+            <New class="org.eclipse.jetty.security.JDBCLoginService">
+                   <Set name="name">MySecurityRealm</Set>
+                   <Set name="config">
+                    <!--
+                    src/main/resources/realm.properties
+                    -->
+                    <SystemProperty name="jetty.home" default="."/>/etc/realm.properties
+                    </Set>                   
+            </New>
+       </Set>
+   </Get>
+
+</Configure>

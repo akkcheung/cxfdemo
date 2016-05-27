@@ -1,0 +1,12 @@
+package cxfdemo;
+import javax.jws.WebService;
+
+@WebService(endpointInterface = "demo.hw.server.HelloWorld",
+            serviceName = "HelloWorld")
+public class CXFDemoImpl implements CXFDemo {
+
+    public String sayHello(String text) {
+        return "hello "+ text;
+    }
+
+}
